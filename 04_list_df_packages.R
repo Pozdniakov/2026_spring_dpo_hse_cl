@@ -95,7 +95,7 @@ install.packages("devtools")
 # Если не помогло, то попробуйте китайский севрер:
 # chooseCRANmirror()
 # Выбираем 17 (и жмем enter)
-# После этогшо запускаем install.packages("название пакета") заново
+# После этого запускаем install.packages("название пакета") заново
 
 
 devtools::install_github("brooke-watson/BRRR")
