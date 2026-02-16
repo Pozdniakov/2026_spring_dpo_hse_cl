@@ -71,6 +71,10 @@ data(mtcars)
 mtcars[,c("hp", "mpg", "cyl")]
 #mtcars[11]
 
+# Работа с пакетами -------------------------------------------------------
+
+
+
 install.packages("beepr")
 library("beepr")
 library(beepr)
@@ -83,6 +87,17 @@ beepr::beep()
 # ggplot2::alpha()
 
 install.packages("devtools")
+
+# Если из России не устанавливается пакет, то попробуйте:
+# chooseCRANmirror()
+# Выбираем сначала 73 (и жмем enter)
+# Потом 9 (сервер в Новосибирске)
+# Если не помогло, то попробуйте китайский севрер:
+# chooseCRANmirror()
+# Выбираем 17 (и жмем enter)
+# После этогшо запускаем install.packages("название пакета") заново
+
+
 devtools::install_github("brooke-watson/BRRR")
 BRRR::skrrrahh(9)
 
