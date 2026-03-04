@@ -102,6 +102,3 @@ boxplot(Weight ~ Alignment, data = heroes)
 boxplot(heroes$Weight ~ heroes$Alignment)
 
 
-# ggplot2 -----------------------------------------------------------------
-
-
