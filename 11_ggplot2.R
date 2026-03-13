@@ -1,8 +1,8 @@
 library(tidyverse)
 
-penguins
+#penguins
 # install.packages("palmerpenguins")
-# penguins <- palmerpenguins::penguins
+penguins <- palmerpenguins::penguins
 dim(penguins)
 gg <- ggplot()
 

@@ -1,0 +1,101 @@
+---
+title: "Our first Quarto example"
+author: "Pozdniakov"
+format: html
+editor: visual
+execute:
+  echo: false
+---
+
+## Quarto
+
+Quarto enables you to ***weave*** together content and executable code into a *finished document* [^1]. To **learn more** about Quarto see <https://quarto.org>.
+
+[^1]: Это сноска
+
+This will be NOT calculated: `2+2`.\
+This will be calculated: `r 2+2`
+
+```{r import_data_and_packages}
+#| message: false
+
+library(tidyverse)
+library(plotly)
+library(leaflet)
+library(DT)
+penguins <- palmerpenguins::penguins
+```
+
+```{r}
+#| warning: false
+as.numeric(c(1, "dva"))
+```
+
+## Картиночка
+
+![quarto scheme](Louis-DelphinOdobeyCadet.jpg)
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: true
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+## {plotly}
+
+```{r}
+#| message: false
+#| warning: false
+g_penguins <- ggplot() +
+  geom_point(data = penguins, 
+             aes(x = flipper_length_mm,
+                 y = body_mass_g,
+                 size = body_mass_g,
+                 shape = sex,
+                 colour = body_mass_g),
+             alpha = 0.7) +
+  geom_smooth(data = penguins, 
+              aes(x = flipper_length_mm,
+                  y = body_mass_g),
+              colour = "#202030", method = "lm") +
+  scale_colour_viridis_c(option = "inferno", end = .9) +
+  facet_wrap(~island) +
+  labs(x = "Flipper length, mm",
+       y = "Body mass, g",
+       title = "Penguins",
+       subtitle = "...but not from Madagaskar",
+       caption = "Pozdniakov Ivan",
+       colour = "Body mass, g",
+       size = "Body mass, g",
+       shape = "Sex") +
+  hrbrthemes::theme_ipsum()
+ggplotly(g_penguins)
+```
+
+## {leaflet}
+
+```{r}
+
+leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat=55.767290, lng=37.664066, popup="Our academic home")
+
+```
+
+## {DT}
+
+```{r}
+datatable(penguins)
+```
